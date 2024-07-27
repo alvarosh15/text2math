@@ -4,6 +4,10 @@ export default function Editor({ setText, text }) {
   };
 
   return (
-    <textarea value={text} onChange={handleChange} className="w-full h-1/2" />
+    <textarea
+      value={text}
+      onChange={handleChange}
+      className="w-1/2 h-full resize-none p-4"
+    />
   );
 }
