@@ -2,37 +2,40 @@
 import { useState, useRef } from "react";
 import Editor from "./_components/Editor";
 import Preview from "./_components/Preview";
-import html2canvas from "html2canvas";
+import { downloadPNG, copyToClipboard } from "./_utils/utils";
+import Toolbar from "./_components/Toolbar";
 
 export default function Home() {
-  const [text, setText] = useState("`frac(10)(4x) approx 2^(12)`");
+  const [text, setText] = useState(
+    "$`sum_(i=1)^n i^3=((n(n+1))/2)^2`$ $\\frac{2}{3}$ $`1/2`$"
+  );
   const previewRef = useRef(null);
-
-  const downloadPNG = async () => {
-    const canvas = await html2canvas(previewRef.current);
-    const link = document.createElement("a");
-    link.href = canvas.toDataURL("image/png");
-    link.download = "math_preview.png";
-    link.click();
-  };
-
-  const copyToClipboard = async () => {
-    const canvas = await html2canvas(previewRef.current);
-    canvas.toBlob((blob) => {
-      const item = new ClipboardItem({ "image/png": blob });
-      navigator.clipboard.write([item]);
-    });
-  };
+  const [bgColor, setBgColor] = useState("#f7f8fa");
+  const [textAlign, setTextAlign] = useState("left");
+  const [textColor, setTextColor] = useState("black");
 
   return (
-    <div className="flex flex-col h-screen items-center bg-red-50">
-      <div className="flex flex-row gap-4 p-4 w-11/12 h-2/3 bg-red-200">
+    <div className="flex flex-col h-screen items-center m-4">
+      <Toolbar
+        onBgColorChange={setBgColor}
+        bgColor={bgColor}
+        onTextColorChange={setTextColor}
+        textColor={textColor}
+        onTextAlignChange={setTextAlign}
+      />
+      <div className="flex flex-col gap-4 p-2 w-full h-2/3 md:flex-row md:w-11/12">
         <Editor setText={setText} text={text} />
-        <Preview text={text} previewRef={previewRef} />
+        <Preview
+          text={text}
+          previewRef={previewRef}
+          bgColor={bgColor}
+          textAlign={textAlign}
+          textColor={textColor}
+        />
       </div>
-      <div className="flex flex-row gap-4 p-4">
+      <div className="flex flex-row gap-4 p-2 md:p-6">
         <button
-          onClick={downloadPNG}
+          onClick={() => downloadPNG(previewRef)}
           className="rounded-full bg-[#056dfa] p-6 flex font-bold items-center justify-center"
         >
           <svg
@@ -48,7 +51,7 @@ export default function Home() {
           </svg>
         </button>
         <button
-          onClick={copyToClipboard}
+          onClick={() => copyToClipboard(previewRef)}
           className="rounded-full bg-[#056dfa] p-6 flex font-bold items-center justify-center"
         >
           <svg

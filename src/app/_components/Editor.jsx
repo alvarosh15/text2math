@@ -7,7 +7,7 @@ export default function Editor({ setText, text }) {
     <textarea
       value={text}
       onChange={handleChange}
-      className="w-1/2 h-full resize-none p-4"
+      className="w-full h-full resize-none p-4 bg-[#f7f8fa] outline-none border border-slate-400 text-3xl md:w-1/2"
     />
   );
 }

@@ -1,23 +1,37 @@
-import { MathJax } from "better-react-mathjax";
-import { MathJaxContext } from "better-react-mathjax";
+import ReactMarkdown from "react-markdown";
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
+import rehypeAsciiMath from "rehype-asciimath";
+import "katex/dist/katex.min.css";
 
-export default function Preview({ text, previewRef }) {
-  const config = {
-    loader: { load: ["input/asciimath"] },
-    asciimath: {
-      displaystyle: true,
-      delimiters: [
-        ["$", "$"],
-        ["`", "`"],
-      ],
-    },
-  };
-
+export default function Preview({
+  text,
+  previewRef,
+  bgColor,
+  textAlign,
+  textColor,
+}) {
   return (
-    <MathJaxContext config={config}>
-      <div className="w-1/2 h-full bg-blue-100 p-4" ref={previewRef}>
-        <MathJax>{text}</MathJax>
+    <div
+      className={`w-full h-full border border-slate-400 text-3xl overflow-auto resize-none md:w-1/2`}
+      style={{ backgroundColor: bgColor }}
+    >
+      <div
+        ref={previewRef}
+        className={`p-4`}
+        style={{
+          backgroundColor: bgColor,
+          textAlign: textAlign,
+          color: textColor,
+        }}
+      >
+        <ReactMarkdown
+          remarkPlugins={[remarkMath]}
+          rehypePlugins={[rehypeAsciiMath, rehypeKatex]}
+        >
+          {text}
+        </ReactMarkdown>
       </div>
-    </MathJaxContext>
+    </div>
   );
 }
