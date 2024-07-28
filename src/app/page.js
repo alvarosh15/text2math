@@ -7,7 +7,17 @@ import Toolbar from "./_components/Toolbar";
 
 export default function Home() {
   const [text, setText] = useState(
-    "$`sum_(i=1)^n i^3=((n(n+1))/2)^2`$ $\\frac{2}{3}$ $`1/2`$"
+    `This is one of the most well-known series in mathematics.
+
+$$\\sum_{n=0}^{\\infty} z^n = \\frac{1}{1-z}, \\quad |z| < 1$$
+
+You can write it using LaTeX, as shown above, or using AsciiMath:
+
+$$\`sum_(n=0)^oo z^n = (1)/(1-z), |z| < 1.\`$$
+
+Additionally, you can write inline math such as $2\\pi r$ using LaTex or $\`2pir\`$ using AsciiMath.
+
+The toolbar above allows you to change text alignment, background color, and text color.`
   );
   const previewRef = useRef(null);
   const [bgColor, setBgColor] = useState("#f7f8fa");
