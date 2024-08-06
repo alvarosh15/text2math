@@ -1,9 +1,10 @@
 "use client";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Editor from "./_components/Editor";
 import Preview from "./_components/Preview";
 import { downloadPNG, copyToClipboard } from "./_utils/utils";
 import Toolbar from "./_components/Toolbar";
+import { useTheme } from "next-themes";
 
 export default function Home() {
   const [text, setText] = useState(
@@ -20,9 +21,20 @@ Additionally, you can write inline math such as $2\\pi r$ using LaTex or $\`2pir
 The toolbar above allows you to change text alignment, background color, and text color.`
   );
   const previewRef = useRef(null);
-  const [bgColor, setBgColor] = useState("#f7f8fa");
+
+  const { theme, setTheme } = useTheme();
+  const [bgColor, setBgColor] = useState(
+    theme == "dark" ? "#1c1c1e" : "#f7f8fa"
+  );
   const [textAlign, setTextAlign] = useState("left");
-  const [textColor, setTextColor] = useState("black");
+  const [textColor, setTextColor] = useState(
+    theme == "dark" ? "#ffffff" : "#000000"
+  );
+
+  useEffect(() => {
+    setBgColor(theme === "dark" ? "#1c1c1e" : "#f7f8fa");
+    setTextColor(theme === "dark" ? "#ffffff" : "#000000");
+  }, [theme]);
 
   return (
     <div className="flex flex-col h-screen items-center m-4">
@@ -46,7 +58,7 @@ The toolbar above allows you to change text alignment, background color, and tex
       <div className="flex flex-row gap-4 p-2 md:p-6">
         <button
           onClick={() => downloadPNG(previewRef)}
-          className="rounded-full bg-[#056dfa] p-6 flex font-bold items-center justify-center"
+          className="rounded-full bg-[#056dfa] dark:bg-[#0a84ff] p-6 flex font-bold items-center justify-center"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -62,7 +74,7 @@ The toolbar above allows you to change text alignment, background color, and tex
         </button>
         <button
           onClick={() => copyToClipboard(previewRef)}
-          className="rounded-full bg-[#056dfa] p-6 flex font-bold items-center justify-center"
+          className="rounded-full bg-[#056dfa] dark:bg-[#0a84ff] p-6 flex font-bold items-center justify-center"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

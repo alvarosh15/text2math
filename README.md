@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Text2Math
 
-## Getting Started
+Text2Math (https://text2math.vercel.app) is a web application that allows you to convert text into mathematical equations using LaTeX or AsciiMath. The application also includes a toolbar that enables users to change text alignment, background color, and text color.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Render Mathematical Equations**: Supports both LaTeX and AsciiMath syntax.
+- **Inline Math**: You can write inline math such as \(2^2\) using LaTeX or `2^2` using AsciiMath.
+- **Customizable Appearance**: Use the toolbar to adjust text alignment, background color, and text color.
+- **Download or Copy Image**: Easily download the generated image as a PNG or copy it to the clipboard. This solves the problem of sharing mathematical text quickly on social media, enhancing readability.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Installation
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+1. Clone the repository:
+    ```sh
+    git clone https://github.com/alvarosh15/text2math.git
+    cd text2math
+    ```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+2. Install dependencies:
+    ```sh
+    npm install
+    ```
 
-## Learn More
+3. Run the application:
+    ```sh
+    npm run dev
+    ```
 
-To learn more about Next.js, take a look at the following resources:
+## Usage
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Enter your text with LaTeX or AsciiMath syntax.
+2. Use the toolbar to adjust text alignment, background color, and text color.
+3. Click on the download button to save the preview as a PNG image.
+4. Click on the copy button to copy the preview to the clipboard.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Contributing
 
-## Deploy on Vercel
+Contributions are welcome! Please fork the repository and submit a pull request for any improvements.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This project is licensed under the MIT License.
