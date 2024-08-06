@@ -11,11 +11,11 @@ Text2Math (https://text2math.vercel.app) is a web application that allows you to
 
 # Screenshots
 
-![Light Mode](./imagenes/lightmode.png)
+![Light Mode](./images/lightmode.png)
 
-![Dark Mode](./imagenes/darkmode.png)
+![Dark Mode](./images/darkmode.png)
 
-![Background Changed](./imagenes/bgchanged.png)
+![Background Changed](./images/bgchanged.png)
 
 ## Installation
 
