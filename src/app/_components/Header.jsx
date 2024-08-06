@@ -21,7 +21,7 @@ export default function Header() {
         </div>
         <button
           onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-          className="bg-[#056dfa] dark:bg-[#0a84ff] text-white my-1 px-1 md:px-4 md:py-2 rounded-full"
+          className="bg-[#056dfa] dark:bg-[#0a84ff] text-white my-1 px-4 md:px-4 md:py-2 rounded-full"
         >
           Modo oscuro
         </button>

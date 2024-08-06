@@ -24,11 +24,11 @@ The toolbar above allows you to change text alignment, background color, and tex
 
   const { theme, setTheme } = useTheme();
   const [bgColor, setBgColor] = useState(
-    theme == "dark" ? "#1c1c1e" : "#f7f8fa"
+    localStorage.getItem("theme") == "dark" ? "#1c1c1e" : "#f7f8fa"
   );
   const [textAlign, setTextAlign] = useState("left");
   const [textColor, setTextColor] = useState(
-    theme == "dark" ? "#ffffff" : "#000000"
+    localStorage.getItem("theme") == "dark" ? "#ffffff" : "#000000"
   );
 
   useEffect(() => {
@@ -37,7 +37,7 @@ The toolbar above allows you to change text alignment, background color, and tex
   }, [theme]);
 
   return (
-    <div className="flex flex-col h-screen items-center m-4">
+    <div className="flex flex-col h-screen items-center gap-2 m-4">
       <Toolbar
         onBgColorChange={setBgColor}
         bgColor={bgColor}
@@ -55,10 +55,10 @@ The toolbar above allows you to change text alignment, background color, and tex
           textColor={textColor}
         />
       </div>
-      <div className="flex flex-row gap-4 p-2 md:p-6">
+      <div className="flex flex-row gap-4">
         <button
           onClick={() => downloadPNG(previewRef)}
-          className="rounded-full bg-[#056dfa] dark:bg-[#0a84ff] p-6 flex font-bold items-center justify-center"
+          className="rounded-full bg-[#056dfa] dark:bg-[#0a84ff] p-8 flex font-bold items-center justify-center"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -74,7 +74,7 @@ The toolbar above allows you to change text alignment, background color, and tex
         </button>
         <button
           onClick={() => copyToClipboard(previewRef)}
-          className="rounded-full bg-[#056dfa] dark:bg-[#0a84ff] p-6 flex font-bold items-center justify-center"
+          className="rounded-full bg-[#056dfa] dark:bg-[#0a84ff] p-8 flex font-bold items-center justify-center"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
