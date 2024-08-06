@@ -1,10 +1,8 @@
-"use client";
 import ReactMarkdown from "react-markdown";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import rehypeAsciiMath from "rehype-asciimath";
 import "katex/dist/katex.min.css";
-import { useEffect } from "react";
 
 export default function Preview({
   text,
@@ -13,7 +11,6 @@ export default function Preview({
   textAlign,
   textColor,
 }) {
-  useEffect(() => {}, [bgColor]);
   return (
     <div
       className={`w-full h-full border border-slate-400 dark:border-[#545458] text-3xl overflow-auto resize-none md:w-1/2`}

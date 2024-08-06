@@ -9,12 +9,12 @@ export default function Header() {
     <div className="bg-[#f7f8fa] dark:bg-[#1c1c1e] flex flex-col justify-between items-center px-8 border-b border-slate-400 dark:border-[#545458] md:flex-row md:h-20">
       <h1 className="text-5xl font-light pt-2">Text2Math</h1>
       <div className="flex flex-row text-2xl h-full space-x-4 items-center text-lg">
-        <div className="flex h-full items-center hover:border-b-4 hover:border-[#056dfa]">
+        <div className="flex h-full items-center hover:border-b-4 hover:border-[#056dfa] dark:hover:border-[#0a84ff]">
           <a href="https://github.com/alvarosh15/text2math" target="_blank">
             Github
           </a>
         </div>
-        <div className="flex h-full items-center hover:border-b-4 hover:border-[#056dfa]">
+        <div className="flex h-full items-center hover:border-b-4 hover:border-[#056dfa] dark:hover:border-[#0a84ff]">
           <a href="https://asciimath.org/" target="_blank">
             AsciiMath
           </a>

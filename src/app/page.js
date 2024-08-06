@@ -23,13 +23,9 @@ The toolbar above allows you to change text alignment, background color, and tex
   const previewRef = useRef(null);
 
   const { theme, setTheme } = useTheme();
-  const [bgColor, setBgColor] = useState(
-    localStorage.getItem("theme") == "dark" ? "#1c1c1e" : "#f7f8fa"
-  );
+  const [bgColor, setBgColor] = useState("#f7f8fa");
   const [textAlign, setTextAlign] = useState("left");
-  const [textColor, setTextColor] = useState(
-    localStorage.getItem("theme") == "dark" ? "#ffffff" : "#000000"
-  );
+  const [textColor, setTextColor] = useState("#000000");
 
   useEffect(() => {
     setBgColor(theme === "dark" ? "#1c1c1e" : "#f7f8fa");
