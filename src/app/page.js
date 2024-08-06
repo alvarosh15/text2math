@@ -28,8 +28,12 @@ The toolbar above allows you to change text alignment, background color, and tex
   const [textColor, setTextColor] = useState("#000000");
 
   useEffect(() => {
-    setBgColor(theme === "dark" ? "#1c1c1e" : "#f7f8fa");
-    setTextColor(theme === "dark" ? "#ffffff" : "#000000");
+    if (bgColor === "#1c1c1e" || bgColor === "#f7f8fa") {
+      setBgColor(theme === "dark" ? "#1c1c1e" : "#f7f8fa");
+    }
+    if (textColor === "#ffffff" || textColor === "#000000") {
+      setTextColor(theme === "dark" ? "#ffffff" : "#000000");
+    }
   }, [theme]);
 
   return (

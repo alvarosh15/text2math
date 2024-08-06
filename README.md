@@ -9,6 +9,14 @@ Text2Math (https://text2math.vercel.app) is a web application that allows you to
 - **Customizable Appearance**: Use the toolbar to adjust text alignment, background color, and text color.
 - **Download or Copy Image**: Easily download the generated image as a PNG or copy it to the clipboard. This solves the problem of sharing mathematical text quickly on social media, enhancing readability.
 
+# Screenshots
+
+![Light Mode](./imagenes/lightmode.png)
+
+![Dark Mode](./imagenes/darkmode.png)
+
+![Background Changed](./imagenes/bgchanged.png)
+
 ## Installation
 
 1. Clone the repository:
